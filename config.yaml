@@ -1,6 +1,6 @@
 name: "Fairlee drive-in movies"
 description: "Know when the Fairlee, VT drive-in movie theater changes their movies."
-version: "1.0.0"
+version: "1.0.1"
 slug: "fairlee_drive_in"
 init: false
 arch:
@@ -9,3 +9,13 @@ arch:
   - armhf
   - armv7
   - i386
+services:
+  - 'mqtt:need'
+options:
+  mqtt_host: 'homeassistant.local'
+  mqtt_username: ''
+  mqtt_password: ''
+schema:
+  mqtt_host: str
+  mqtt_username: str
+  mqtt_password: str
