@@ -2,6 +2,7 @@ import type {
   ContainerInterface,
   Provider,
 } from "@halliganjs/service-container";
+import fs from "node:fs";
 
 export type AppConfig = {
   mqtt: {
@@ -13,12 +14,25 @@ export type AppConfig = {
 };
 
 export const provider: Provider = (container) => {
+  let configEnv = {
+    host: process.env.MQTT_HOST ?? "",
+    username: process.env.MQTT_USERNAME ?? "",
+    password: process.env.MQTT_PASSWORD ?? "",
+  };
+  try {
+    const strConfig = fs.readFileSync("./config.json", { encoding: "utf8" });
+    console.log({ strConfig });
+    configEnv = JSON.parse(strConfig);
+  } catch {
+    // no-opt
+  }
+
   container.instance("config", {
     mqtt: {
-      host: process.env.MQTT_HOST ?? "",
+      host: configEnv.host,
       port: 1883,
-      username: process.env.MQTT_USERNAME ?? "",
-      password: process.env.MQTT_PASSWORD ?? "",
+      username: configEnv.username,
+      password: configEnv.password,
     },
   } satisfies AppConfig);
 };
