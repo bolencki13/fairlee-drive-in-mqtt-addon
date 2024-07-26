@@ -14,7 +14,9 @@ export class DriveInMovies extends MqttSensor {
     }
     this.mqtt.connection.publish(
       [DriveInMovies.getTopicBase(this.id), "state"].join("/"),
-      this.refreshedAt.getTime().toString(),
+      this.getMovies()
+        .map((movie) => movie.title)
+        .join(";"),
     );
   }
 
