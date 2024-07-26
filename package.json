@@ -1,6 +1,6 @@
 {
   "name": "fairlee-drive-in-mqtt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "lint-staged": {
     "*.{ts,tsx}": [
