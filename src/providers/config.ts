@@ -3,6 +3,7 @@ import type {
   Provider,
 } from "@halliganjs/service-container";
 import fs from "node:fs";
+import path from "node:path";
 
 export type AppConfig = {
   mqtt: {
@@ -20,12 +21,16 @@ export const provider: Provider = (container) => {
     password: process.env.MQTT_PASSWORD ?? "",
   };
   try {
-    const strConfig = fs.readFileSync("./config.json", { encoding: "utf8" });
+    const strConfig = fs.readFileSync(path.resolve("./config.json"), {
+      encoding: "utf8",
+    });
     console.log({ strConfig });
     configEnv = JSON.parse(strConfig);
-  } catch {
-    // no-opt
+  } catch (ex) {
+    console.error(ex);
   }
+
+  console.log({ configEnv });
 
   container.instance("config", {
     mqtt: {
