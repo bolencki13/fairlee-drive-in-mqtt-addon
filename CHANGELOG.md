@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fix build script for options from HA
+
+## [1.0.4] - 07/26/2024
+
+### Fixed
+
 - Fix path reference for config.json
 
 ## [1.0.3] - 07/26/2024

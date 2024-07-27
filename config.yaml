@@ -1,6 +1,6 @@
 name: "Fairlee drive-in movies"
 description: "Know when the Fairlee, VT drive-in movie theater changes their movies."
-version: "1.0.4-3"
+version: "1.0.5"
 slug: "fairlee_drive_in"
 init: false
 arch:
