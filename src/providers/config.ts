@@ -21,6 +21,8 @@ export const provider: Provider = (container) => {
     password: process.env.MQTT_PASSWORD ?? "",
   };
   try {
+    const files = fs.readdirSync(path.resolve("."));
+    console.log({ files });
     const strConfig = fs.readFileSync(path.resolve("./config.json"), {
       encoding: "utf8",
     });
