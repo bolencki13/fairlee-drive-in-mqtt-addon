@@ -5,14 +5,17 @@ FROM $BUILD_FROM
 RUN \
   apk add --no-cache nodejs npm
 
-WORKDIR /home/node/app
+WORKDIR /app
 
-COPY package*.json ./
+COPY . /app
 
-RUN npm i
-
-COPY . .
+# Build produciton
+RUN npm -v
+RUN node -v
+RUN npm install
 
 RUN npm run build
 
-CMD [ "npm", "start" ]
+RUN chmod a+x /app/scripts/run.sh
+
+CMD [ "/app/scripts/run.sh" ]
