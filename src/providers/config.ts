@@ -23,7 +23,7 @@ export const provider: Provider = (container) => {
   try {
     const files = fs.readdirSync(path.resolve("."));
     console.log({ files });
-    const strConfig = fs.readFileSync(path.resolve("./config.json"), {
+    const strConfig = fs.readFileSync(path.resolve("/options.json"), {
       encoding: "utf8",
     });
     console.log({ strConfig });
