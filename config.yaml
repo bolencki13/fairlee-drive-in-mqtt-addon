@@ -1,14 +1,11 @@
 name: "Fairlee drive-in movies"
 description: "Know when the Fairlee, VT drive-in movie theater changes their movies."
-version: "2.0.0"
+version: "2.0.1"
 slug: "fairlee_drive_in"
 init: false
 arch:
   - aarch64
   - amd64
-  - armhf
-  - armv7
-  - i386
 services:
   - "mqtt:want"
 # Leave mqtt_host empty to use the broker configured in Home Assistant (e.g. the Mosquitto add-on)

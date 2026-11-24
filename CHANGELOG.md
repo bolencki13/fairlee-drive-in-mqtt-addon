@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 11/23/2026
+
+### Fixed
+
+- Install failed on Supervisor 2026.04+ ("base name ($BUILD_FROM) should not be blank"): the Dockerfile now
+  defaults to the multi-platform `ghcr.io/home-assistant/base` image.
+
+### Removed
+
+- armhf, armv7 and i386 support (the Home Assistant base image is only published for amd64 and aarch64).
+
 ## [2.0.0] - 11/23/2026
 
 ### Changed
