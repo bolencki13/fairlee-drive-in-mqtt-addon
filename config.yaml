@@ -1,6 +1,6 @@
 name: "Fairlee drive-in movies"
 description: "Know when the Fairlee, VT drive-in movie theater changes their movies."
-version: "1.0.5"
+version: "2.0.0"
 slug: "fairlee_drive_in"
 init: false
 arch:
@@ -10,12 +10,15 @@ arch:
   - armv7
   - i386
 services:
-  - 'mqtt:need'
+  - "mqtt:want"
+# Leave mqtt_host empty to use the broker configured in Home Assistant (e.g. the Mosquitto add-on)
 options:
-  mqtt_host: 'homeassistant.local'
-  mqtt_username: ''
-  mqtt_password: ''
+  mqtt_host: ""
+  mqtt_port: 1883
+  mqtt_username: ""
+  mqtt_password: ""
 schema:
-  mqtt_host: str
-  mqtt_username: str
-  mqtt_password: str
+  mqtt_host: str?
+  mqtt_port: port?
+  mqtt_username: str?
+  mqtt_password: password?
